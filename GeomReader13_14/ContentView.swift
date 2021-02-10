@@ -10,8 +10,18 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello, World!")
-    }
+          GeometryReader { geo in
+            VStack(spacing: 0) {
+                Rectangle()
+                    .fill(Color.green)
+                    .frame(width: 100, height: 50)
+            }
+            .frame(width: geo.size.width,
+                   height: geo.size.height,
+                   alignment: .center) // alignment here should function as expected.
+        }
+        .frame(width: 50, height: 100)
+        .border(Color.black)    }
 }
 
 struct ContentView_Previews: PreviewProvider {
